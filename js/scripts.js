@@ -17,26 +17,27 @@ Address.prototype.fullAddress = function() {
 }
 // user interface logic
 $(document).ready(function() {
-
+//add new address form
   $("#add-address").click(function() {
     $("#new-addresses").append('<div class="new-address">' +
-                                 '<div class="form-group">' +
+                                 '<div class="form-group extra">' +
                                    '<label for="new-street">Street</label>' +
                                    '<input type="text" class="form-control new-street">' +
                                  '</div>' +
-                                 '<div class="form-group">' +
+                                 '<div class="form-group extra">' +
                                    '<label for="new-city">City</label>' +
                                    '<input type="text" class="form-control new-city">' +
                                  '</div>' +
-                                 '<div class="form-group">' +
+                                 '<div class="form-group extra">' +
                                    '<label for="new-state">State</label>' +
                                    '<input type="text" class="form-control new-state">' +
                                  '</div>' +
                                '</div>');
   });
-
+  //add contact submit
   $("form#new-contact").submit(function(event) {
     event.preventDefault();
+    $(".extra").remove();
 
     var inputtedFirstName = $("input#new-first-name").val();
     var inputtedLastName = $("input#new-last-name").val();
