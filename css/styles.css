@@ -1,0 +1,21 @@
+#show-contact {
+  display: none;
+}
+
+.contact {
+  cursor: pointer;
+  color: #0088cc;
+}
+
+.contact:hover {
+  text-decoration: underline;
+}
+
+.jumbotron {
+  background-color: white;
+  background-image: url(../img/goldfish.jpg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: right;
+  color: #E16706;
+}
