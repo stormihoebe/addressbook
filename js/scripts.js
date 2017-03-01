@@ -15,46 +15,54 @@ Contact.prototype.fullName = function() {
 Address.prototype.fullAddress = function() {
   return this.street + ", " + this.city + ", " + this.state;
 }
+function resetFields(){
+  $("input#new-first-name").val("");
+  $("input#new-last-name").val("");
+  $("input#new-street").val("");
+  $("input#new-city").val("");
+  $("input#new-state").val("");
+};
+
 // user interface logic
 $(document).ready(function() {
 //add new address form
   $("#add-address").click(function() {
-    $("#new-addresses").append('<div class="new-second-address">' +
-                                 '<div class="form-group extra">' +
-                                 '<h2>Second Home</h2>' +
-                                   '<label for="new-street">Street</label>' +
-                                   '<input type="text" class="form-control new-street" id="second-street">' +
-                                 '</div>' +
-                                 '<div class="form-group extra">' +
-                                   '<label for="new-city">City</label>' +
-                                   '<input type="text" class="form-control new-city"id="second-city">' +
-                                 '</div>' +
-                                 '<div class="form-group extra">' +
-                                   '<label for="new-state">State</label>' +
-                                   '<input type="text" class="form-control new-state"id="second-state">' +
-                                 '</div>' +
-                               '</div>' +
-                               '<div class="new-work-address">' +
-                                  '<div class="form-group extra">' +
-                                  '<h2>Work Address</h2>' +
-                                    '<label for="new-street">Street</label>' +
-                                    '<input type="text" class="form-control new-street" id="work-street">' +
-                                  '</div>' +
-                                  '<div class="form-group extra">' +
-                                    '<label for="new-city">City</label>' +
-                                    '<input type="text" class="form-control new-city" id="work-city">' +
-                                  '</div>' +
-                                  '<div class="form-group extra">' +
-                                    '<label for="new-state">State</label>' +
-                                    '<input type="text" class="form-control new-state" id="work-state">' +
-                                  '</div>' +
-                                '</div>'
-                            );
+    $("#new-addresses").append(
+      '<div class="new-second-address">' +
+       '<div class="form-group extra">' +
+       '<h2>Second Home</h2>' +
+         '<label for="new-street">Street</label>' +
+         '<input type="text" class="form-control new-street" id="second-street">' +
+       '</div>' +
+       '<div class="form-group extra">' +
+         '<label for="new-city">City</label>' +
+         '<input type="text" class="form-control new-city"id="second-city">' +
+       '</div>' +
+       '<div class="form-group extra">' +
+         '<label for="new-state">State</label>' +
+         '<input type="text" class="form-control new-state"id="second-state">' +
+       '</div>' +
+     '</div>' +
+     '<div class="new-work-address">' +
+        '<div class="form-group extra">' +
+        '<h2>Work Address</h2>' +
+          '<label for="new-street">Street</label>' +
+          '<input type="text" class="form-control new-street" id="work-street">' +
+        '</div>' +
+        '<div class="form-group extra">' +
+          '<label for="new-city">City</label>' +
+          '<input type="text" class="form-control new-city" id="work-city">' +
+        '</div>' +
+        '<div class="form-group extra">' +
+          '<label for="new-state">State</label>' +
+          '<input type="text" class="form-control new-state" id="work-state">' +
+        '</div>' +
+      '</div>'
+  );
   });
   //add contact submit
   $("form#new-contact").submit(function(event) {
     event.preventDefault();
-    // debugger;
 
     var inputtedFirstName = $("input#new-first-name").val();
     var inputtedLastName = $("input#new-last-name").val();
@@ -97,12 +105,8 @@ $(document).ready(function() {
         $("ul#addresses").append("<li>" + address.fullAddress() + "</li>");
       });
     });
-
-    $("input#new-first-name").val("");
-    $("input#new-last-name").val("");
-    $("input.new-street").val("");
-    $("input.new-city").val("");
-    $("input.new-state").val("");
+// remove inputted text from all fields
+    resetFields();
 
   });
 });
